@@ -35,26 +35,25 @@ Respecto a la navegación intuitiva, lo considero una parte importante a la hora
 
 ### Home  
 #### Chrome  
-![alt text](image.png)
-![alt text](image-2.png)
-![alt text](image-3.png)
+Me comenta que a nivel de resilencia y velocidad no está mal, se puede mejorar pero que no está mal. Hay que revisar mejor el CSS para ver por qué realentiza el cargado de la página y para asegurar que sea vea el texto adecuadamente. También podría lazy-loader las imágenes que no estén en el rango de visión del usuario para ahorrar recursos y velocidad.
+
+Respecto a la usabilidad, comenta que las imagenes deberían tener un ratio de tamaño fijo y que el select no tiene un label asociado, cosa que sería importante de cara a la accesibilidad por si alguien usa un lector de pantalla.
 
 #### Firefox
-![alt text](image-4.png)
-![alt text](image-5.png)
+En firefox me ha comentado que la resilencia está perfecta, a diferencia de antes, que me decía que se podía mejorar este apartado. Supongo que se debe a cómo funcionan ambos navegadores.
 
-evaluación de Navegación   
-Listado ¿?  
-Producto ¿?
+Por el resto de apartados ha dado los mismos resultados.
+
+## Evaluación de Navegación   
+* Listado: En este apartado la navegación podría mejorar bastante, como poniendo un color de enlaces que permita que se lea a dónde le estás dando y un tamaño fijo a las fotos de los álbumnes. Aunque en defensa de la navegación sin ratón, se puede usar perfectamente con teclado y eso es un punto bastante positivo
+  
+* Producto:
 
 ## PageSpeed Insights {#pagespeed-insights}
 
-3. [**PageSpeed Insights**](https://pagespeed.web.dev/):
-
-   * Analiza al menos **3 páginas clave**: home, listado y producto.  
-   * Identifica los **elementos de mejora** y explica las recomendaciones.
-
 **Home**
+
+![resultado pagespeed home](./imagenes/pagaspeed_home.png)
 
 Cuando hablamos de los resultados de los tests de escritorio: De media tiene un 90 de puntuación en todos los apartados (menos en SEO, que tiene un 82). Respecto al rendimiento, prácticamente todo radica en una mejor optimización de las imágenes en la página mediando el uso de imágenes con formato como WebP o precargando la imagen de renderizado o también poner una altura y anchura explícita a las imágenes.
 
@@ -66,40 +65,42 @@ En cuanto SEO, dice que no tengo metadatos en la página y que el archivo robots
 
 **Listado**
 
+![resultados pagespeed listado](./imagenes/pagespeed_listado.png)
+
 Con respecto al listado, a nivel de rendimiento y prácticas recomendables está perfecto, pues esos apartados están puntuados con un 100, pero la accesibilidad y el SEO tienen una media de 85 puntos y quiero profundizar en esos resultados.
 
 La accesibilidad, comenta los resultados, que se pueden mejorar el contraste de colores y hacer los elementos con un mayor tamaño para la zona táctil, pues los elementos de la página son tan pequeños que no hay espacio entre ellos para un correcto uso de ello.
 
 
 **Producto**
-
+![resultado pagespeed producto](./imagenes/pagespeed_producto.png)
 Todo bien menos el apartado de buenas prácticas y el SEO, que es debido al iframe de Spotify, pues debido a ello salen cookies de terceros, lo cual me advierte que eso es un problema de seguridad y que tal vez debería buscar otra solución para quitar ese iframe.
 
 Con respecto al SEO añadimos otra posible mejora es poner enlaces rastreables.
 
-## Lighthouse {#lighthouse}
+## Lighthouse {#lighthouse}lighthouse
 
-![alt text](image-6.png)
+![Resultado lighthouse](./imagenes/lighthouse.png)
 
-4. **Optimización con Lighthouse**:
+* LCP: +24
+* TBT: +30
+* CLS: +19
+* SI: +10
+* FCP: +10
 
-   * Evalúa el rendimiento del sitio web utilizando **Lighthouse** en Chrome DevTools. Mide y analiza los siguientes parámetros:  
-     * **Largest Contentful Paint (LCP):** tiempo que tarda en renderizarse el elemento más grande visible.  
-     * **Interaction to Next Paint (INP):** latencia en la interacción con elementos interactivos.  
-     * **Cumulative Layout Shift (CLS):** estabilidad visual del contenido durante la carga.  
-     * **First Contentful Paint (FCP):** tiempo hasta que se muestra el primer elemento visual.  
-     * **First Input Delay (FID):** tiempo de respuesta a la primera interacción del usuario.  
-     * **Time to First Byte (TTFB):** tiempo hasta recibir el primer byte del servidor.  
-   * Documenta los resultados obtenidos y realiza recomendaciones específicas para optimizar cada parámetro medido. 
+Acorde a los resultados, la página no tarda mucho en pintar el primer contenido ni en renderizar el mayor elemento con contenido, además que su velocidad de indexado es muy buena, tardando 0.8 segundos. Sin embargo tarda 0.2 en cuanto cambios de diseños acumulados.
+
+Para lidiar con ello, puedo especificar el tamaño de las imágenes para que ya se sepa que tamaño van a tener y que se precargue ese tamaño y también se puede usar  font-display: swap para precargar el texto y ahorrar posibles problemas visuales
+
 
 ## Ghost Inspector {#ghost-inspector}
 
+![resultado navegacion](./imagenes/test_navegacion.png)
+Respecto a la prueba de navegación debo decir que no entiendo por qué Ghost Inspecto no ha podido completar el test, quiero decir, he querido acceder al álbum de un artista para ello he viajado de home a Myke Towers y desde ahí he accedido a cualquiera de sus álbumnes con facilidad mediante 3 clicks
 
 
- 
-5. **Evaluación con Ghost Inspector**
 
-   * Realiza un testeo automatizado con **Ghost Inspector** para comprobar la navegación general y los procesos críticos del sitio web.  
-   * Adjunta el **video generado** y analiza los resultados. Por ejemplo, presta atención a posibles fallos como botones inactivos, enlaces rotos o tiempos de carga excesivos.  
-   * Una guía visual sencilla podría consistir en comparar la salida del testeo con el comportamiento esperado (por ejemplo, verificar si los pasos automatizados coinciden con el flujo de navegación diseñado).
+![resultado funcionalidad](./imagenes/image.png)
 
+Aquí sí se ha podido comprobar que se puede acceder la funciona correctamente la funcionalidad de agregar favoritos, al menos visualmente, pudiendo llegar en pocos clicks (una vez tengas sesión iniciada). 
+No tardó en cargar ninguna de las veces y sería trampa decir que que sabía cómo acceder a los sitios, pero lo supe.
