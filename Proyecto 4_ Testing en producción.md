@@ -47,7 +47,7 @@ Por el resto de apartados ha dado los mismos resultados.
 ## Evaluación de Navegación   
 * Listado: En este apartado la navegación podría mejorar bastante, como poniendo un color de enlaces que permita que se lea a dónde le estás dando y un tamaño fijo a las fotos de los álbumnes. Aunque en defensa de la navegación sin ratón, se puede usar perfectamente con teclado y eso es un punto bastante positivo
   
-* Producto:
+* Producto: La información de la página se podría estructurar mejor, pero se puede navegar sin problema usando el teclado y con el ratón. Al igual que antes habría que cambiar el color de las fuentes para que se puedan leer, pero navegar como tal se puede.
 
 ## PageSpeed Insights {#pagespeed-insights}
 
